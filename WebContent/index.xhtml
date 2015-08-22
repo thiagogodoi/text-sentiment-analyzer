@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Sentimental Analysis</title>
+	<link rel="stylesheet" href="style.css" />
+</h:head>
+<h:body>
+	<h3 style="margin-top: 0">Escreva um texto abaixo e submeta para
+		uma análise dos sentimentos do mesmo:</h3>
+	<h:form>
+		<table>
+			<tr>
+				<td><h:commandButton value="#{msg.getTextSent}"
+						action="#{mBean.populateChart}" /></td>
+				<td><p:inputTextarea rows="25" cols="60" autoResize="false"
+						value="#{mBean.text}" /></td>
+			</tr>
+			<tr>
+				<td><h:outputText value="${mainBean.errorMessage}" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>
