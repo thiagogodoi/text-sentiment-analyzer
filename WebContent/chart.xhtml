@@ -10,8 +10,14 @@
 <h:body>
 	<table>
 		<tr>
-			<td><p:chart type="line" model="#{mBean.sentimentalChart.lineModel}"
-					style="height:300px;" /></td>
+			<td><p:chart type="line"
+					model="#{mBean.sentimentalChart.lineModel}" style="height:300px;" /></td>
+		</tr>
+		<tr>
+			<h:form>
+				<td><h:commandButton class="btn" value="New Analyse"
+						action="#{mBean.getHome}" /></td>
+			</h:form>
 		</tr>
 	</table>
 </h:body>

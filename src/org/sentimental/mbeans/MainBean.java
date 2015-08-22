@@ -26,6 +26,10 @@ public class MainBean {
 	private SentimentalChart sentimentalChart;
 	
 	private ClassifierClient classifierClient;
+	
+	public String getHome(){
+		return "index.xhtml";
+	}
 
 	public String populateChart() {
 		
@@ -52,7 +56,7 @@ public class MainBean {
 			catch(Exception e){
 				Logger.getLogger(MainBean.class.getName()).log(Level.SEVERE, "Error calling the watson API", e);
 				setErrorMessage("Erro chamando aplicação watson, tente novamente mais tarde."); 
-				return "";
+				return getHome();
 			}
 			finally {
 				Calendar timeEnd = Calendar.getInstance();
@@ -61,7 +65,7 @@ public class MainBean {
 			}
 		} else {
 			setErrorMessage("Your text is empty, please fill the text and try again."); 
-			return "";
+			return getHome();
 		}
 	}
 
