@@ -8,18 +8,25 @@
 	<link rel="stylesheet" href="style.css" />
 </h:head>
 <h:body>
-	<h3 style="margin-top: 0">Escreva um texto abaixo e submeta para
-		uma análise dos sentimentos do mesmo:</h3>
+	
 	<h:form>
 		<table>
 			<tr>
-				<td><h:commandButton value="Get text sentimental graph"
+				<td width="20%">
+				<img src="images/positive-negative.png" />
+				</td>
+				<td width="70%">
+				<h3>Escreva um texto abaixo e submeta para uma análise dos sentimentos do mesmo:</h3>
+				</td>
+				<td width="10%"><h:commandButton class="btn" value="Analyse text"
 						action="#{mBean.populateChart}" /></td>
-				<td><p:inputTextarea rows="25" cols="60" autoResize="false"
-						value="#{mBean.text}" /></td>
 			</tr>
 			<tr>
-				<td><h:outputText value="${mBean.errorMessage}" /></td>
+				<th colspan="3"><h:inputTextarea rows="25" cols="60" autoResize="true" autofocus="true" placeholder="Insert your text here..."
+						value="#{mBean.text}" /></th>
+			</tr>
+			<tr>
+				<th colspan="3"><h:outputText value="${mBean.errorMessage}" /></th>
 			</tr>
 		</table>
 	</h:form>

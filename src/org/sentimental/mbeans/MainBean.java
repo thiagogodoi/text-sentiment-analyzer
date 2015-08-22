@@ -52,7 +52,7 @@ public class MainBean {
 			catch(Exception e){
 				Logger.getLogger(MainBean.class.getName()).log(Level.SEVERE, "Error calling the watson API", e);
 				setErrorMessage("Erro chamando aplicação watson, tente novamente mais tarde."); 
-				return "index";
+				return "";
 			}
 			finally {
 				Calendar timeEnd = Calendar.getInstance();
@@ -61,7 +61,7 @@ public class MainBean {
 			}
 		} else {
 			setErrorMessage("Your text is empty, please fill the text and try again."); 
-			return "index";
+			return "";
 		}
 	}
 
