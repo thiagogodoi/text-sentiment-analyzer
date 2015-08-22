@@ -1,7 +1,7 @@
 applications:
 - disk_quota: 1024M
-  host: sentiment-analysis
-  name: sentiment analysis
+  host: text-sentiment-analysis
+  name: text-sentiment-analysis
   path: webStarterApp.war
   domain: mybluemix.net
   instances: 1
