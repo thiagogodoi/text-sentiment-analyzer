@@ -13,13 +13,13 @@
 	<h:form>
 		<table>
 			<tr>
-				<td><h:commandButton value="#{msg.getTextSent}"
+				<td><h:commandButton value="Get text sentimental graph"
 						action="#{mBean.populateChart}" /></td>
 				<td><p:inputTextarea rows="25" cols="60" autoResize="false"
 						value="#{mBean.text}" /></td>
 			</tr>
 			<tr>
-				<td><h:outputText value="${mainBean.errorMessage}" /></td>
+				<td><h:outputText value="${mBean.errorMessage}" /></td>
 			</tr>
 		</table>
 	</h:form>

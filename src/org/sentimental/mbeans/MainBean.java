@@ -9,7 +9,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import org.primefaces.model.chart.LineChartModel;
 import org.sentimental.chart.SentimentalChart;
 import org.sentimental.classifier.ClassifierClient;
 import org.sentimental.text.ParagraphBreaker;
@@ -36,24 +35,32 @@ public class MainBean {
 
 		if (text != null && !text.isEmpty() && classifierClient != null) {
 			Calendar timeStart = Calendar.getInstance();
-			List<String> paragraphList = ParagraphBreaker.breakTextIntoParagraphs(text);
-			
-			int paragraphNum=1;
-			for(String paragraph:paragraphList){
-				if(paragraph.length()>PARAGRAPH_MAX_SIZE){
-					paragraph = paragraph.substring(0, 1000);
+			try{
+				List<String> paragraphList = ParagraphBreaker.breakTextIntoParagraphs(text);
+				
+				int paragraphNum=1;
+				for(String paragraph:paragraphList){
+					if(paragraph.length()>PARAGRAPH_MAX_SIZE){
+						paragraph = paragraph.substring(0, 1000);
+					}
+					sentimentalChart.addSeries(paragraphNum++, classifierClient.getClassification(paragraph));
 				}
-				sentimentalChart.addSeries(paragraphNum++, classifierClient.getClassification(paragraph));
-			}
-			
-			Calendar timeEnd = Calendar.getInstance();
-			Logger.getLogger(MainBean.class.getName()).log(Level.INFO, "Time spent calling watson (mileseconds) :"
-					+ (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()));
 
-			this.sentimentalChart.addSeriesToChart();
-			return "chart";
+				this.sentimentalChart.addSeriesToChart();
+				return "chart";
+			}
+			catch(Exception e){
+				Logger.getLogger(MainBean.class.getName()).log(Level.SEVERE, "Error calling the watson API", e);
+				setErrorMessage("Erro chamando aplicação watson, tente novamente mais tarde."); 
+				return "index";
+			}
+			finally {
+				Calendar timeEnd = Calendar.getInstance();
+				Logger.getLogger(MainBean.class.getName()).log(Level.INFO, "Time spent calling watson (mileseconds) :"
+						+ (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()));
+			}
 		} else {
-			errorMessage = "Your text is empty, please fill the text and try again."; 
+			setErrorMessage("Your text is empty, please fill the text and try again."); 
 			return "index";
 		}
 	}
