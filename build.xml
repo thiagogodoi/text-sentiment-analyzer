@@ -45,6 +45,7 @@
 	    </webinf>
 	  	<fileset dir="WebContent">
 	  		<include name="**/*"/>
+	  		<exclude name="WEB-INF/lib/javax.faces-2.2.9.jar"/>
 	    </fileset>
 	  	<classes dir="bin"/>
 	  </war>
