@@ -13,7 +13,6 @@
 	<property name="warname" value="webStarterApp.war" />
 	<path id="classpathDir">
 		<pathelement location="bin" />
-		<pathelement location="dep-jar/com.ibm.ws.javaee.jaxrs.1.1_1.0.1.jar" />
 		<fileset dir="WebContent/WEB-INF">
 			<include name="lib/*" />
 		</fileset>
