@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ParagraphBreaker {
 
-	private static final String REGEX_FOR_PARAGRAPH = "\\.\\s\\n+[\\s\\t]*";
+	private static final String REGEX_FOR_PARAGRAPH = "\\.\\s*\\n+[\\s\\t]*";
 
 	/**
 	 * Break a given text into a list of strings, it considerer that a paragraph

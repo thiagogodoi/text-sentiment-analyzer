@@ -8,17 +8,16 @@
 	<link rel="stylesheet" href="style.css" />
 </h:head>
 <h:body>
-	<table>
-		<tr>
-			<td><p:chart type="line"
-					model="#{mBean.sentimentalChart.lineModel}" style="height:300px;" /></td>
-		</tr>
-		<tr>
-			<h:form>
-				<td><h:commandButton class="btn" value="New Analyse"
-						action="#{mBean.getHome}" /></td>
-			</h:form>
-		</tr>
-	</table>
+	<div class="head">
+		<a href="start.xhtml"><img class="logo" src="images/rsz_logo.jpg" /></a>
+	</div>
+	<div class="chart">
+		<p:chart extender="customExtender" type="line"
+			model="#{mBean.sentimentalChart.lineModel}" style="height:300px;" />
+		<div class="newanalyse">
+			<a class="btn" href="start.xhtml">New Analysis</a>
+		</div>
+	</div>
+
 </h:body>
 </html>

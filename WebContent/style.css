@@ -8,6 +8,7 @@ body,html {
 	margin: 0 auto;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color: #448e4c;
+	text-align: center;
 }
 
 a {
@@ -19,24 +20,25 @@ a:hover {
 	text-decoration: underline;
 }
 
+.errorMessage{
+	color : #ff2525;	
+	font-weight: bold;
+}
+
 h1 {
 	font-weight: bold;
 	font-size: 2em;
 }
 
-.leftHalf {
-	float: left;
-	background-color: #6ac7fa;
-	width: 25%;
-	height: 100%;
+.chart {
+	width: 80%;
+	text-align: center;
+	padding-top: 5%;
+	padding-left: 10%;
 }
 
-.rightHalf {
-	float: right;
-	width: 75%;
-	background-color: #6ac7fa;
-	height: 100%;
-	overflow:auto;
+.newanalyse {
+	padding-top: 10%;
 }
 
 .description {
@@ -46,13 +48,15 @@ h1 {
 	font-size: 1.2em;
 }
 
-.blue {
-	color: #00aed1;
-}
-
 img {
   width: 100%;
   display: block;
+}
+
+img.logo{
+   max-width:15%;
+   max-height:15%;
+   padding-left: 10%
 }
 
 
@@ -62,10 +66,33 @@ table {
 	margin: 0 auto;
 	word-wrap: break-word;
 	padding-top:2%;
+	cellspacing: "0";
+	border-collapse:collapse;
+}
+
+table.intro {
+	width: 100%;
 }
 
 th, td {
 	text-align: center;
+}
+
+.head {
+	border-bottom-style: solid;
+	border-color: #bcc1ae;
+	border-width: medium;
+	border-collapse:collapse;
+	background-color: #ffffff;
+}
+
+.content {
+	font-size: 2.5em;
+	font-family: modern;
+	padding-top: 2%;
+	padding-left: 10%;
+	padding-right: 10%;
+	text-align: center;	
 }
 
 textarea
@@ -85,33 +112,25 @@ pre {
 }
 
 .btn {
-  background: #3bbf48;
-  background-image: -webkit-linear-gradient(top, #3bbf48, #34a840);
-  background-image: -moz-linear-gradient(top, #3bbf48, #34a840);
-  background-image: -ms-linear-gradient(top, #3bbf48, #34a840);
-  background-image: -o-linear-gradient(top, #3bbf48, #34a840);
-  background-image: linear-gradient(to bottom, #3bbf48, #34a840);
-  -webkit-border-radius: 8;
-  -moz-border-radius: 8;
-  border-radius: 8px;
-  font-family: Arial;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Georgia;
   color: #ffffff;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  background: #448e4c;
+  padding: 10px 10px 10px 10px;
   text-decoration: none;
 }
 
 .btn:hover {
-  background: #46eb54;
-  background-image: -webkit-linear-gradient(top, #46eb54, #3ccf4b);
-  background-image: -moz-linear-gradient(top, #46eb54, #3ccf4b);
-  background-image: -ms-linear-gradient(top, #46eb54, #3ccf4b);
-  background-image: -o-linear-gradient(top, #46eb54, #3ccf4b);
-  background-image: linear-gradient(to bottom, #46eb54, #3ccf4b);
+  background: #39db49;
   text-decoration: none;
 }
 
-.jqplot-axis-tick, .jqplot-target, .jqplot-title{
+.jqplot-point .jqplot-title .jqplot-point-label .jqplot-xaxis-label .jqplot-yaxis-label {
 	color: #448e4c;
+	
 }
+
 

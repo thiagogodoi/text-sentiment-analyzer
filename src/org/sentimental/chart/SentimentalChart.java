@@ -12,7 +12,7 @@ public class SentimentalChart {
 
 	private static final String GRAPH_X_AXYS_NAME = "Paragraphs";
 
-	private static final String GRAPH_TITLE = "Text sentimentals chart over the paragraphs";
+	private static final String GRAPH_TITLE = "Text sentiments for paragraphs";
 
 	private LineChartModel lineModel;
 	
