@@ -12,32 +12,36 @@ import com.ibm.watson.developer_cloud.natural_language_classifier.v1.model.Class
 
 public class ClassifierClient {
 
+	private static final String URL_PROPERTY_NAME = "url";
+	private static final String PASSWORD_PROPERTY_NAME = "password";
+	private static final String USERNAME_PROPERTY_NAME = "username";
+	private static final String VCAP_PROPERTIES_NAME = "VCAP_SERVICES";
 	private static final String CREDENTIALS_JSON_ELEMENT_NAME = "credentials";
 	private static final String NATURAL_LANGUAGE_JSON_ELEMENT_NAME = "natural_language_classifier";
 	//To be used in dev-mode
-	private static final String VCAP_PROPERTIES = "";
+	private static final String VCAP_PROPERTIES = "{   \"natural_language_classifier\": [      {         \"name\": \"Natural Language Classifier-ji\",         \"label\": \"natural_language_classifier\",         \"plan\": \"standard\",         \"credentials\": {            \"url\": \"https://gateway.watsonplatform.net/natural-language-classifier/api\",            \"username\": \"3380513a-17ab-4074-8ddc-1ba724ec2fdf\",            \"password\": \"TJ9eh3Opd0UU\"         }      }   ]}";
 	private static final String CLASSIFIER_ID = "47A225-nlc-215";
 	private NaturalLanguageClassifier service;
 
 	public ClassifierClient() {
 		this.service = new NaturalLanguageClassifier();
 		try {
-			String vcapString = System.getenv("VCAP_SERVICES");
+			String vcapString = System.getenv(VCAP_PROPERTIES_NAME);
 			if (vcapString == null || vcapString.isEmpty()) {
 				vcapString = VCAP_PROPERTIES;
 			}
 			JSONObject credentials = getCredentials(vcapString);
 
-			String user = credentials.getString("username");
-			String pass = credentials.getString("password");
-			String url = credentials.getString("url");
+			String user = credentials.getString(USERNAME_PROPERTY_NAME);
+			String pass = credentials.getString(PASSWORD_PROPERTY_NAME);
+			String url = credentials.getString(URL_PROPERTY_NAME);
 
 			service.setUsernameAndPassword(user, pass);
 			service.setEndPoint(url);
 
 		} catch (JSONException je) {
 			Logger.getLogger(ClassifierClient.class.getName()).log(Level.WARNING,
-					"Error setting natural language classifier!", je);
+					"Error setting natural language classifier parameters!", je);
 			;
 		}
 	}
